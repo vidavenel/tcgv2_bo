@@ -14,6 +14,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/illuminate/session" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/illuminate/support" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/illuminate/view" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/jenssegers/blade" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mejta/standalone-blade" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
