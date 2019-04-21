@@ -16,18 +16,25 @@ class BoServiceProvider extends ServiceProvider
     public function boot()
     {
         // views
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'bo');
+        $this->loadViewsFrom(__DIR__.'/../views', 'bo');
+
+        // assets
+        $this->publishes([
+            __DIR__.'/../assets' => public_path('vendor/tcgv2_bo')
+        ], 'public');
 
         // configuration
         $this->publishes([
             __DIR__ . '/../config/tcgv2_bo.php' => config_path('tcgv2_bo.php'),
         ]);
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/tcgv2_bo.php', 'tcgv2_bo'
+        );
 
-        // compiled assets
-        $this->publishes([
-            __DIR__ . '/../public' => public_path('admin')
-        ], 'public');
-
+        // route
+        if (config('tcgv2_bo.develop')) {
+            $this->loadRoutesFrom(__DIR__.'/../route.php');
+        }
 
         /**
          * breadcumb

@@ -6,6 +6,7 @@
  * Time: 04:11
  */
 return [
+    'develop' => true,
     'route' => [
         'dashboard' => 'dashboard',
         'commande_index' => 'commande.index',

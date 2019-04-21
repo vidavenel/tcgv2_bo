@@ -7,11 +7,6 @@
             "email": "vincent@aigle-developpement.com"
         }
     ],
-    "require": {
-        "illuminate/http": "5.8.x-dev",
-        "mejta/standalone-blade": "^5.6",
-        "jenssegers/blade": "^1.1"
-    },
     "autoload": {
         "psr-4": {
             "Tcgv2\\Bo\\": "src/"
@@ -27,9 +22,9 @@
             "providers": [
                 "Tcgv2\\Bo\\BoServiceProvider"
             ]
-        },
-        "branch-alias": {
-            "dev-master": "0.1-dev"
         }
+    },
+    "require": {
+        "illuminate/support": "^5.8"
     }
 }
