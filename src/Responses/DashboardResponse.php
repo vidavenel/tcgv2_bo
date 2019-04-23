@@ -16,12 +16,14 @@ class DashboardResponse implements Responsable
     private $totaux_url;
     private $commande_evolution;
     private $repartition;
+    private $distribution;
 
-    public function __construct($totaux_url, $commande_evolution, $repartition)
+    public function __construct($totaux_url, $commande_evolution, $distribution)
     {
         $this->totaux_url = $totaux_url;
         $this->commande_evolution = $commande_evolution;
-        $this->repartition = $repartition;
+        $this->distribution = $distribution;
+        //$this->repartition = $repartition;
     }
 
     /**
@@ -36,7 +38,8 @@ class DashboardResponse implements Responsable
             'admin' => new UserPresenter(),
             'totaux_url' => $this->totaux_url,
             'commande_evolution' => $this->commande_evolution,
-            'repartition' => $this->repartition
+            'repartition' => $this->repartition,
+            'distribution' => $this->distribution
         ];
         return view('bo::dashboard', $data);
     }
