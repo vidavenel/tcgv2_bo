@@ -7,7 +7,7 @@
             <div class="col-md-4" id="print_totaux">
                 <div class="row">
                     <div class="col-xs-12">
-                        <button class="btn btn-default daterange" type="button" data-ajax="{{ $totaux_url }}"><span><i class="fa fa-calendar"></i></span><i class="fa fa-caret-down"></i></button>
+                        <button class="btn btn-default daterange" type="button" data-ajax="{{ $totaux_url }}"><span><i class="fa fa-calendar"></i></span> <i class="fa fa-caret-down"></i></button>
                     </div>
                 </div>
                 <div class="row" style="margin-top: 10px">
@@ -38,7 +38,7 @@
             </div>
             <!-- evolution-->
             <div class="col-md-8" id="commande_evolution">
-                <button class="btn btn-default daterange" type="button" data-ajax="{{ $commande_evolution }}"><span><i class="fa fa-calendar"></i></span><i class="fa fa-caret-down"></i></button>
+                <button class="btn btn-default daterange" type="button" data-ajax="{{ $commande_evolution }}"><span><i class="fa fa-calendar"></i></span> <i class="fa fa-caret-down"></i></button>
                 <canvas id="commande_client"></canvas>
             </div>
         </div>
@@ -49,7 +49,7 @@
             </div>
             <!-- distrution_horaire-->
             <div class="col-md-8">
-                <button class="btn btn-default daterange" type="button"><span><i class="fa fa-calendar"></i></span><i class="fa fa-caret-down"></i></button>
+                <button class="btn btn-default daterange" type="button"><span><i class="fa fa-calendar"></i></span> <i class="fa fa-caret-down"></i></button>
                 <canvas id="commande_horaire"></canvas>
             </div>
         </div>
