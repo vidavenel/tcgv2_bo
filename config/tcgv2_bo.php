@@ -10,6 +10,8 @@ return [
     'route' => [
         'dashboard' => 'dashboard',
         'commande_index' => 'commande.index',
+        'commande_abandonnees' => 'commande.abandonnee',
+        'code_promo' => 'discount.index',
         'profile' => "#",
         'logout' => "#",
         'commande_search' => '#'

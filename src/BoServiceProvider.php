@@ -27,9 +27,6 @@ class BoServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/tcgv2_bo.php' => config_path('tcgv2_bo.php'),
         ]);
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/tcgv2_bo.php', 'tcgv2_bo'
-        );
 
         // route
         if (config('tcgv2_bo.develop')) {
