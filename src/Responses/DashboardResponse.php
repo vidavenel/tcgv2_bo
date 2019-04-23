@@ -13,6 +13,16 @@ use Tcgv2\Bo\Presenters\UserPresenter;
 
 class DashboardResponse implements Responsable
 {
+    private $totaux_url;
+    private $commande_evolution;
+    private $repartition;
+
+    public function __construct($totaux_url, $commande_evolution, $repartition)
+    {
+        $this->totaux_url = $totaux_url;
+        $this->commande_evolution = $commande_evolution;
+        $this->repartition = $repartition;
+    }
 
     /**
      * Create an HTTP response that represents the object.
@@ -23,7 +33,10 @@ class DashboardResponse implements Responsable
     public function toResponse($request)
     {
         $data = [
-            'admin' => new UserPresenter()
+            'admin' => new UserPresenter(),
+            'totaux_url' => $this->totaux_url,
+            'commande_evolution' => $this->commande_evolution,
+            'repartition' => $this->repartition
         ];
         return view('bo::dashboard', $data);
     }
