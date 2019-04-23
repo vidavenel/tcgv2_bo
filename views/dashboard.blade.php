@@ -48,7 +48,7 @@
                 <canvas id="pie_chart"></canvas>
             </div>
             <!-- distrution_horaire-->
-            <div class="col-md-8">
+            <div class="col-md-8" id="distribution">
                 <button class="btn btn-default" type="button" data-ajax="{{ $distribution }}"><span><i class="fa fa-calendar"></i></span> <i class="fa fa-caret-down"></i></button>
                 <canvas id="commande_horaire"></canvas>
             </div>
