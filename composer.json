@@ -25,6 +25,6 @@
         }
     },
     "require": {
-        "illuminate/support": "^5.8"
+        "illuminate/support": "^5.7"
     }
 }
