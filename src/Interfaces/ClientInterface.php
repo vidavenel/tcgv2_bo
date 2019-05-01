@@ -16,7 +16,19 @@ namespace Tcgv2\Bo\Interfaces;
  */
 interface ClientInterface extends BaseInterface
 {
+    public function getId(): int;
+
+    public function getCivilite(): string;
+
     public function getNom(): string;
 
     public function getPrenom(): string;
+
+    public function getAdresse_1(): string;
+
+    public function getAdresse_2(): ?string;
+
+    public function getTelephone(): string;
+
+    public function getEmail(): string;
 }

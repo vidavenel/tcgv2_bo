@@ -19,4 +19,6 @@ interface DemarcheItemInterface extends BaseInterface
     public function getNom(): string;
 
     public function getStatut(): StatutInterface;
+
+    public function getInfo(): array;
 }

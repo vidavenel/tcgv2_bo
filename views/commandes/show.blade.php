@@ -20,7 +20,7 @@
                         <dt>Téléphone</dt>
                         <dd>{{ $client->telephone }}</dd>
                         <dt>Email</dt>
-                        <dd>{{ $client->client->email }}</dd>
+                        <dd>{{ $client->email }}</dd>
                     </dl>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                             @foreach($paiements as $paiement)
                                 {{ $paiement->type }} — {{ $paiement->montant }}<br>
                             @endforeach
-                            Taxes {{ $demarcheItem->info['taxes']['total'] }} <br>
+                            Taxes {{ $demarcheItem['info']['taxes']['total'] }} <br>
                             TOTAL TTC {{ $commande->total_paiement }}
                         </div>
                     </div>
@@ -104,13 +104,13 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">CG - {{ $demarcheItem->demarche->nom }}</h3>
+                    <h3 class="box-title">CG - {{ $demarcheItem['nom'] }}</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">
                         <div class="col-xs-12">
                             <dl class="dl-horizontal">
-                                @if(array_key_exists('vehicule', $demarcheItem->info))
+                                @if(array_key_exists('vehicule', $demarcheItem['info']))
 
                                     @foreach($demarcheItem->info['vehicule'] as $k => $info)
                                         <dt>{{ $k }}</dt>
@@ -118,7 +118,7 @@
                                     @endforeach
                                 @endif
                                 <dt>Taxe</dt>
-                                <dd>{{ $demarcheItem->info['taxes']['total'] }}</dd>
+                                <dd>{{ $demarcheItem['info']['taxes']['total'] }}</dd>
                             </dl>
                         </div>
                     </div>

@@ -35,10 +35,6 @@
                                 <label for="email_client">Email client</label>
                                 <input type="text" class="form-control" id="email_client">
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Numero commande</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1">
-                            </div>
                         </div>
                     </div>
                 </div>

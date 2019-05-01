@@ -22,22 +22,27 @@ class CommandePresenter
     public $date;
     public $accessoires;
     public $discount;
+    public $total_paiement;
+    public $paiements;
 
     public function __construct(CommandeInterface $commande)
     {
         $this->id = $commande->id;
         $this->numero = $commande->reference;
-        $this->client = $commande->client->prenom . " " . $commande->client->nom;
+        $this->client = $commande->client;
         $this->montant = $commande->montant;
         $this->paiement = $commande->moyenPaiement;
+        $this->total_paiement = $commande->getTotalPaiement();
         $this->demarche = [
             'nom' => $commande->demarcheItem->nom,
             'class' => $commande->demarcheItem->statut->class,
             'statut' => $commande->demarcheItem->statut->nom,
+            'info' => $commande->demarcheItem->info
         ];
         $this->date = $commande->date->format('d/m/Y');
         $this->discount = $commande->getDiscount();
         $this->date_relance = $commande->getDateRelance();
         $this->accessoires = '';
+        $this->paiements = $commande->getPaiements();
     }
 }

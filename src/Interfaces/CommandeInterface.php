@@ -10,6 +10,7 @@ namespace Tcgv2\Bo\Interfaces;
 
 
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 /**
  * Interface CommandeInterface
@@ -32,6 +33,8 @@ interface CommandeInterface extends BaseInterface
 
     public function getMontant(): float;
 
+    public function getTotalPaiement(): float;
+
     public function getMoyenPaiement(): string;
 
     public function getDemarcheItem(): ?DemarcheItemInterface;
@@ -41,4 +44,6 @@ interface CommandeInterface extends BaseInterface
     public function getDateRelance(): ?Carbon;
 
     public function getDiscount(): ?DiscountInterface;
+
+    public function getPaiements(): Collection;
 }
