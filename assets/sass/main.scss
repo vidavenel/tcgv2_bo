@@ -1,0 +1,17 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~admin-lte/dist/css/AdminLTE.css";
+@import "~admin-lte/dist/css/skins/skin-blue.css";
+@import "~select2/dist/css/select2.css";
+@import "~daterangepicker/daterangepicker.css";
+
+$fa-font-path:        "/vendor/tcgv2_bo/fonts/vendor/font-awesome" !default;
+@import "~font-awesome/scss/font-awesome";
+
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    width: 120px;
+  }
+  .dl-horizontal dd {
+    margin-left: 140px;
+  }
+}

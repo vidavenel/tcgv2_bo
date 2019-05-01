@@ -34,7 +34,11 @@ interface CommandeInterface extends BaseInterface
 
     public function getMoyenPaiement(): string;
 
-    public function getDemarcheItem(): DemarcheItemInterface;
+    public function getDemarcheItem(): ?DemarcheItemInterface;
 
-    public function getDate(): Carbon;
+    public function getDate(): ?Carbon;
+
+    public function getDateRelance(): ?Carbon;
+
+    public function getDiscount(): ?DiscountInterface;
 }

@@ -10,8 +10,9 @@
             <li><a href="{{ route(config('tcgv2_bo.route.commande_index')) }}"><i class="fa fa-shopping-cart"></i> <span>Commandes</span></a></li>
             <li><a href="{{ route(config('tcgv2_bo.route.commande_abandonnees')) }}"><i class="fa fa-shopping-bag"></i> <span>Commandes abandonnées</span></a></li>
             {{--<li><a href="#"><i class="fa fa-times"></i> <span>Commandes expirées</span></a></li>
-            <li><a href="#"><i class="fa fa-send"></i> <span>Accessoires à envoyer</span></a></li>
-            <li class="header">Administration</li>
+            <li><a href="#"><i class="fa fa-send"></i> <span>Accessoires à envoyer</span></a></li>--}}
+            <li><a href="{{ route(config('tcgv2_bo.route.code_promo')) }}"><i class="fa fa-gift"></i> <span>Code promo</span></a></li>
+            {{--<li class="header">Administration</li>
             <li><a href="#"><i class="fa fa-users"></i> <span>Employés</span></a></li>
             <li><a href="../admin_demarche.html"><i class="fa fa-university"></i> <span>Démarches</span></a></li>
             <li><a href="#"><i class="fa fa-shopping-basket"></i> <span>Articles</span></a></li>

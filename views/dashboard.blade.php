@@ -1,6 +1,7 @@
 @extends('bo::layouts.app')
 
 @section('content')
+    @include('bo::layouts.breadcumb', ['title' => 'Dashboard'])
     <section class="content container-fluid">
         <div class="row">
             <!-- total-->

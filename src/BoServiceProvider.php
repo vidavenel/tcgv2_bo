@@ -20,18 +20,13 @@ class BoServiceProvider extends ServiceProvider
 
         // assets
         $this->publishes([
-            __DIR__.'/../assets' => public_path('vendor/tcgv2_bo')
+            __DIR__.'/../dist' => public_path('vendor/tcgv2_bo/')
         ], 'public');
 
         // configuration
         $this->publishes([
             __DIR__ . '/../config/tcgv2_bo.php' => config_path('tcgv2_bo.php'),
         ]);
-
-        // route
-        if (config('tcgv2_bo.develop')) {
-            $this->loadRoutesFrom(__DIR__.'/../route.php');
-        }
 
         /**
          * breadcumb

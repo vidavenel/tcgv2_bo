@@ -1,0 +1,46 @@
+{
+  "name": "tcgv2_bo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vidavenel/tcgv2_bo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vidavenel/tcgv2_bo/issues"
+  },
+  "homepage": "https://github.com/vidavenel/tcgv2_bo#readme",
+  "devDependencies": {
+    "admin-lte": "^2.4.10",
+    "bootstrap": "^3.4.1",
+    "browser-sync": "^2.26.5",
+    "browser-sync-webpack-plugin": "^2.0.1",
+    "chart.js": "^2.8.0",
+    "cross-env": "^5.1",
+    "daterangepicker": "^3.0.5",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.0",
+    "laravel-mix": "^4.0.15",
+    "moment": "^2.24.0",
+    "resolve-url-loader": "^2.3.1",
+    "sass": "^1.15.2",
+    "sass-loader": "^7.1.0",
+    "select2": "^4.0.6-rc.1",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

@@ -6,15 +6,14 @@
                     <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Recherche commande</h4>
             </div>
-            <form action="{{ config('tcgv2_bo.route.commande_search') }}" method="POST"
-                  enctype="multipart/form-data">
+            <form action="{{ route(config('tcgv2_bo.route.commande_search')) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="no_commande">N° commande</label>
-                                <input type="text" class="form-control" id="no_commande" name="no_commande">
+                                <input type="text" class="form-control" id="no_commande" name="reference">
                             </div>
                             <div class="form-group">
                                 <label for="no_facture">N° facture</label>

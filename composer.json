@@ -12,11 +12,6 @@
             "Tcgv2\\Bo\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Tcgv2\\Bo\\Tests\\": "tests/"
-        }
-    },
     "extra": {
         "laravel": {
             "providers": [
@@ -25,6 +20,13 @@
         }
     },
     "require": {
-        "illuminate/support": "^5.7"
+        "illuminate/support": "^5.7",
+        "illuminate/contracts": "^5.7",
+        "illuminate/view": "^5.7",
+        "illuminate/http": "^5.7"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.8",
+        "illuminate/routing": "^5.8"
     }
 }

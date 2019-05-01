@@ -8,13 +8,13 @@
 return [
     'develop' => true,
     'route' => [
-        'dashboard' => 'dashboard',
-        'commande_index' => 'commande.index',
-        'commande_abandonnees' => 'commande.abandonnee',
-        'code_promo' => 'discount.index',
+        'dashboard' => 'admin.dashboard',
+        'commande_index' => 'admin.commande.index',
+        'commande_abandonnees' => 'admin.commande.abandonnee',
+        'code_promo' => 'admin.discount.index',
         'profile' => "#",
         'logout' => "#",
-        'commande_search' => '#'
+        'commande_search' => 'admin.commande.search'
     ],
     "icons_breadcrumb" => [
         "dashboard" => [

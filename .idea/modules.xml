@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../develop/.idea/develop.iml" filepath="$PROJECT_DIR$/../develop/.idea/develop.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/tcgv2_bo.iml" filepath="$PROJECT_DIR$/.idea/tcgv2_bo.iml" />
     </modules>
   </component>
