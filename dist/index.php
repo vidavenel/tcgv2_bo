@@ -28,17 +28,8 @@ if (! function_exists('mix')) {
             $manifestDirectory = "/{$manifestDirectory}";
         }
 
-        if (file_exists(public_path($manifestDirectory.'/hot'))) {
-            $url = rtrim(file_get_contents(public_path($manifestDirectory.'/hot')));
 
-            if (Str::startsWith($url, ['http://', 'https://'])) {
-                return new HtmlString(Str::after($url, ':').$path);
-            }
-
-            return new HtmlString("//localhost:8080{$path}");
-        }
-
-        $manifestPath = public_path($manifestDirectory.'/mix-manifest.json');
+        $manifestPath = __DIR__.'/mix-manifest.json';
 
         if (! isset($manifests[$manifestPath])) {
             if (! file_exists($manifestPath)) {
@@ -62,7 +53,7 @@ if (! function_exists('mix')) {
             }
         }
 
-        return new HtmlString($manifestDirectory.$manifest[$path]);
+        return new HtmlString($manifest[$path]);
     }
 }
 

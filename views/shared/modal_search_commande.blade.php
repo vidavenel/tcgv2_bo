@@ -6,7 +6,7 @@
                     <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Recherche commande</h4>
             </div>
-            <form action="{{ route(config('tcgv2_bo.route.commande_search')) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.commande_search') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row">
