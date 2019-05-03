@@ -5,8 +5,8 @@ require('bootstrap');
 require('admin-lte/dist/js/adminlte');
 
 // datatable
-// require( 'datatables.net-bs' );
-// require('datatables.net-bs/css/dataTables.bootstrap.css');
+require( 'datatables.net-bs' );
+require('datatables.net-bs/css/dataTables.bootstrap.css');
 
 // select2
 require('select2');
@@ -17,8 +17,6 @@ import './dashboard'
 
 require('daterangepicker');
 import moment from 'moment'
-
-console.log('etst');
 
 $(function() {
 
@@ -34,14 +32,24 @@ $(function() {
         editor('textarea#cgv');
     }*/
 
-    /*if (document.querySelector('#datatable')) {
+    if (document.querySelector('#datatable')) {
         $('#datatable').DataTable({
             bSortCellsTop: true,
             dom: '<"toolbar">tp',
             order: [[ 0, "desc" ]],
-            pageLength: 25
+            pageLength: 25,
+            serverSide: true,
+            columns: [
+                { "searchable": false, "name": "reference" },
+                { "name": "client"},
+                { "name": "demarche"},
+                { "name": "statut"},
+                { "name": "montant"},
+                { "name": "paiement"},
+                { "name": "date"}
+            ]
         });
-    }*/
+    }
 
     if (document.querySelector('#daterange') || document.querySelectorAll('.daterange')) {
         let start = moment().subtract(29, 'days');

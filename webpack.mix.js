@@ -21,7 +21,7 @@ mix.setPublicPath('dist')
             route: 'vendor/tcgv2_bo',
             dir: './dist'
         }],
-        files: ['views/**']
+        files: ['views/**', "assets/**"]
     })
     .js('assets/js/main.js', '.')
     .sass('assets/sass/main.scss', '.')

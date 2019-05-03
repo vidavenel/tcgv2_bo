@@ -9,7 +9,7 @@
             <div class="col-xs-12">
                 <div class="box box-primary">
                     <div class="box box-body">
-                        <table class="table table-bordered table-hover" id="datatable" style="width: 100%">
+                        <table class="table table-bordered table-hover" id="datatable" style="width: 100%" data-ajax="{{ url('data/commandes/data.json') }}">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -57,7 +57,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($commandes as $commande)
+                            {{--@foreach($commandes as $commande)
                                 <tr data-href="{{ route('admin.commande.show', $commande->id) }}" style="cursor: pointer">
                                     <td>{{ $commande->numero }}</td>
                                     <td>@if($commande->date_relance)<span class="badge bg-green"><i class="fa fa-phone"></i></span> @endif{{ $commande->client->nom . " " . $commande->client->prenom }}</td>
@@ -67,12 +67,10 @@
                                     <td>@prix($commande->montant)@if($commande->discount)&nbsp;<span class="badge bg-light-blue"><i class="fa fa-tag"></i></span> @endif</td>
                                     <td>{{ $commande->paiement }}</td>
                                     <td>{{ $commande->date_facturation->format('d/m/Y H:i') }}</td>
-                                    <td>{{ $commande->accessoires }}</td>
                                 </tr>
-                            @endforeach
+                            @endforeach--}}
                             </tbody>
                         </table>
-                        {{ $commandes->links() }}
                     </div>
                 </div>
             </div>
