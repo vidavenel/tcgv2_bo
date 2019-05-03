@@ -1,7 +1,11 @@
 <?php
 
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Route;
+use Tcgv2\Bo\Responses\CommandeIndexResponse;
+use Tcgv2\Bo\Responses\CommandeShowResponse;
 use Tcgv2\Bo\Responses\DashboardResponse;
+use Tcgv2\Bo\Test\Models\Commande;
 
 Route::get('/test', function () {
     dd('test');
@@ -12,14 +16,18 @@ Route::get('/dashboard', function () {
 })->name('admin.dashboard');
 
 Route::get('/commandes', function () {
-    return new DashboardResponse('test','test', 'test');
+    $commandes = collect();
+    for ($i = 0; $i < 50; $i++) {
+        $commandes->push(new Commande());
+    }
+    $paginator = new LengthAwarePaginator($commandes, 50, 25);
+    return new CommandeIndexResponse($paginator);
 })->name('admin.commande.index');
 
 Route::get('/commande/{id}', function () {
-    $commande = new \Tcgv2\Bo\Test\Models\Commande();
-    return new \Tcgv2\Bo\Responses\CommandeShowResponse($commande, collect());
-    //$commande =
-});
+    $commande = new Commande();
+    return new CommandeShowResponse($commande, collect());
+})->name('admin.commande.show');
 
 Route::get('/commandes-non-payees', function () {
     return new DashboardResponse('test','test', 'test');

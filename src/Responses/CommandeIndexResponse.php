@@ -6,13 +6,12 @@
  * Time: 04:53
  */
 
-namespace Tcgv2\Bo\Response;
+namespace Tcgv2\Bo\Responses;
 
 
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Response;
-use Illuminate\Support\Collection;
 use Tcgv2\Bo\Interfaces\CommandeInterface;
 use Tcgv2\Bo\Presenters\CommandePresenter;
 

@@ -31,6 +31,8 @@ class Commande extends BaseModel implements CommandeInterface
     {
         parent::__construct();
 
+        $_relance = $this->faker->optional(0.3)->date();
+
         $this->id = $this->faker->numberBetween();
         $this->reference = $this->faker->word;
         $this->client = new Client();
@@ -39,7 +41,8 @@ class Commande extends BaseModel implements CommandeInterface
         $this->moyenPaiement = $this->faker->randomElement(['monetico', 'payplug']);
         $this->demarcheItem = new DemarcheItem();
         $this->dateFacturation = Carbon::createFromFormat('Y-m-d', $this->faker->date());
-        $this->dateRelance = Carbon::createFromFormat('Y-m-d', $this->faker->date());
+        $this->dateRelance = $_relance ? Carbon::createFromFormat('Y-m-d', $_relance) : null;
+        //$this->dateRelance = $this->faker->randomElement([Carbon::createFromFormat('Y-m-d', $this->faker->date()), null]);
         $this->discount = null;
         $this->paiements = collect();
         $this->notes = $this->generateNotes();
