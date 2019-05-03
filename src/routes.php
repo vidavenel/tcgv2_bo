@@ -8,7 +8,7 @@ Route::get('/test', function () {
 });
 
 Route::get('/dashboard', function () {
-    return new DashboardResponse('test','test', 'test');
+    return new DashboardResponse(url('data/dashboard/total.json'),url('data/dashboard/evolution.json'), url('data/dashboard/distribution.json'));
 })->name('admin.dashboard');
 
 Route::get('/commandes', function () {
