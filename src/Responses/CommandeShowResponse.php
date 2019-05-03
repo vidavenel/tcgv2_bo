@@ -32,8 +32,7 @@ class CommandeShowResponse implements Responsable
         return view('bo::commandes.show', [
             'commande' => $commande,
             'client' => $commande->client,
-            'paiements' => $commande->paiements,
-            'demarcheItem' => $commande->demarche,
+            'demarche' => $commande->demarche,
             'notifications' => $this->notification
         ]);
     }

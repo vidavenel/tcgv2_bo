@@ -28,6 +28,10 @@ interface ClientInterface extends BaseInterface
 
     public function getAdresse_2(): ?string;
 
+    public function getVille(): string;
+
+    public function getCp(): string;
+
     public function getTelephone(): string;
 
     public function getEmail(): string;

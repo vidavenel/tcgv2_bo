@@ -1,60 +1,50 @@
-@extends('layouts.admin.app')
+@extends('bo::layouts.app')
 
 @section('content')
     <!-- Main content -->
-    <section class="content">
-        @include('layouts.errors-and-messages')
+    <section class="content-header">
+        <h1>Commandes #{{ $commande->id }}<small>payé le {{ $commande->date_facturation->format('d/m/Y') }} à  {{ $commande->date_facturation->format('H:i') }}</small></h1>
+    </section>
+    <section class="content container-fluid">
+        @include('bo::layouts.errors-and-messages')
         <div class="col-md-4">
-            <div class="box">
+            <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Client #{{ $client->id }}
                         — {{ $client->civilite }} {{ $client->nom }} {{ $client->prenom }}</h3>
+                    @if($commande->date_relance)
+                    <span class="badge bg-green pull-right"><i class="fa fa-phone"></i></span>
+                    @endif
                 </div>
                 <div class="box-body">
                     <h4></h4>
                     <dl class="dl-horizontal">
                         <dt>Adresse</dt>
                         <dd>{{ $client->adresse_1 }}</dd>
-                        @if($client->adresse_2)
-                            <dd>{{ $client->adresse_2 }}</dd>@endif
+                        @if($client->adresse_2)<dd>{{ $client->adresse_2 }}</dd>@endif
+                        <dd>{{ "$client->cp $client->ville" }}</dd>
                         <dt>Téléphone</dt>
                         <dd>{{ $client->telephone }}</dd>
                         <dt>Email</dt>
-                        <dd>{{ $client->email }}</dd>
+                        <dd><a href="mailto:{{ $client->email }}" style="font-weight: bold">{{ $client->email }}</a></dd>
                     </dl>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Paiements — {{ $commande->total_paiement }}</h3>
-                </div>
-                <div class="box-body">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            @foreach($paiements as $paiement)
-                                {{ $paiement->type }} — {{ $paiement->montant }}<br>
-                            @endforeach
-                            Taxes {{ $demarcheItem['info']['taxes']['total'] }} <br>
-                            TOTAL TTC {{ $commande->total_paiement }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <a href="{{ route('admin.commande.facture', $commande->id) }}" target="_blank" type="button"
-                               class="btn btn-primary">
-                                <i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;Facture
-                            </a>
-                            <button class="btn btn-danger pull-right" type="button">
-                                <i class="fa fa-trash"></i>&nbsp;&nbsp;Annuler la commande
-                            </button>
-                        </div>
-                    </div>
+                <div class="box-footer">
+                    <a target="_blank" href="{{ route('admin.client.compte', $client->id) }}" class="btn btn-info pull-right" type="button">
+                        <i class="fa fa-eye"></i>&nbsp;&nbsp;Acceder au compte du client
+                    </a>
                 </div>
             </div>
 
-            <div class="box">
+            @if($commande->notes->isNotEmpty())
+                @include('bo::commandes.show.notes_box', ['notes' => $commande->notes, 'create_url' => $commande->url['create_note']])
+            @endif
+        </div>
+        <div class="col-md-4">
+
+            @include('bo::commandes.show.paiement_box')
+
+            <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">Email envoyés</h3>
                 </div>
@@ -101,41 +91,8 @@
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">CG - {{ $demarcheItem['nom'] }}</h3>
-                </div>
-                <div class="box-body">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <dl class="dl-horizontal">
-                                @if(array_key_exists('vehicule', $demarcheItem['info']))
+        @include('bo::commandes.show.demarche_box')
 
-                                    @foreach($demarcheItem->info['vehicule'] as $k => $info)
-                                        <dt>{{ $k }}</dt>
-                                        <dd>{{ $info }}</dd>
-                                    @endforeach
-                                @endif
-                                <dt>Taxe</dt>
-                                <dd>{{ $demarcheItem['info']['taxes']['total'] }}</dd>
-                            </dl>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <a href="{{ route('admin.commande.incomplet', $commande->id) }}" type="button"
-                               class="btn btn-danger"><i class="fa fa-check"></i>Dossier reçu
-                                INCOMPLET</a>
-                            <btn data-toggle="modal" data-target="#modal-default" type="button"
-                                 class="btn btn-success pull-right"><i class="fa fa-check"></i>Dossier
-                                reçu COMPLET
-                            </btn>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
     <!-- /.content -->
 

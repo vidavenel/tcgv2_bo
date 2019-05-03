@@ -15,6 +15,12 @@ Route::get('/commandes', function () {
     return new DashboardResponse('test','test', 'test');
 })->name('admin.commande.index');
 
+Route::get('/commande/{id}', function () {
+    $commande = new \Tcgv2\Bo\Test\Models\Commande();
+    return new \Tcgv2\Bo\Responses\CommandeShowResponse($commande, collect());
+    //$commande =
+});
+
 Route::get('/commandes-non-payees', function () {
     return new DashboardResponse('test','test', 'test');
 })->name('admin.commande.abandonnee');
@@ -30,3 +36,19 @@ Route::get('/employee', function () {
 Route::get('/commande-search', function () {
     return new DashboardResponse('test','test', 'test');
 })->name('admin.commande_search');
+
+Route::get('/commande/facture/{id}', function () {
+    return new DashboardResponse('test','test', 'test');
+})->name('admin.commande.facture');
+
+Route::get('/commande/incomplet/{id}', function () {
+    return new DashboardResponse('test','test', 'test');
+})->name('admin.commande.incomplet');
+
+Route::get('/commande/complet/{id}', function () {
+    return new DashboardResponse('test','test', 'test');
+})->name('admin.commande.complet');
+
+Route::get('/client/compte/{id}', function () {
+    return new DashboardResponse('test','test', 'test');
+})->name('admin.client.compte');

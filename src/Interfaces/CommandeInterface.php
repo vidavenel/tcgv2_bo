@@ -21,7 +21,7 @@ use Illuminate\Support\Collection;
  * @property float $montant
  * @property string $moyenPaiement
  * @property DemarcheItemInterface $demarcheItem
- * @property Carbon $date
+ * @property Carbon $dateFacturation
  */
 interface CommandeInterface extends BaseInterface
 {
@@ -39,11 +39,19 @@ interface CommandeInterface extends BaseInterface
 
     public function getDemarcheItem(): ?DemarcheItemInterface;
 
-    public function getDate(): ?Carbon;
+    public function getDateFacturation(): ?Carbon;
 
     public function getDateRelance(): ?Carbon;
 
     public function getDiscount(): ?DiscountInterface;
 
     public function getPaiements(): Collection;
+
+    public function getNotes(): Collection;
+
+    /**
+     * Montant des frais de port
+     * @return float
+     */
+    public function getFraisPort(): float;
 }

@@ -8,6 +8,7 @@
 
 namespace Tcgv2\Bo;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Tcgv2\Bo\Presenters\UserPresenter;
 
@@ -30,6 +31,11 @@ class BoServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/tcgv2_bo.php' => config_path('tcgv2_bo.php'),
         ]);
+
+        Blade::directive('prix', function ($prix) {
+            return "<?php echo number_format($prix, 2) ?>";
+        });
+
 
         /**
          * breadcumb

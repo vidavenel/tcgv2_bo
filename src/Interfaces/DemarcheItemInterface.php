@@ -21,4 +21,12 @@ interface DemarcheItemInterface extends BaseInterface
     public function getStatut(): StatutInterface;
 
     public function getInfo(): array;
+
+    public function getTotalTaxes(): float;
+
+    public function getTaxes(): array;
+
+    public function getPrestation(): float;
+
+    public function getImmatriculation(): string;
 }

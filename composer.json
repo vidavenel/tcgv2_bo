@@ -12,6 +12,11 @@
             "Tcgv2\\Bo\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tcgv2\\Bo\\Test\\": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -24,6 +29,6 @@
     },
     "require-dev": {
         "fzaninotto/faker": "^1.8",
-        "laravel/laravel": "^5.7"
+        "laravel/laravel": "5.7.*"
     }
 }

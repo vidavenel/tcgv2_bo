@@ -1,4 +1,4 @@
-@if($errors->all())
+@if(isset($errors) && $errors->all())
     @foreach($errors->all() as $message)
         <div class="box no-border">
             <div class="box-tools">
@@ -9,7 +9,6 @@
             </div>
         </div>
     @endforeach
-
 @elseif(session()->has('message'))
     <div class="box no-border">
         <div class="box-tools">

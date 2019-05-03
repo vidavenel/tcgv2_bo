@@ -16,8 +16,12 @@ mix.setPublicPath('dist')
         jquery: ['$', 'window.jQuery', 'jQuery']
     })
     .browserSync({
-        proxy: 'http://localhost:8000',
-        serveStatic: ['./dist']
+        proxy: 'http://127.0.0.1:8000',
+        serveStatic: ['./dist', {
+            route: 'vendor/tcgv2_bo',
+            dir: './dist'
+        }],
+        files: ['views/**']
     })
     .js('assets/js/main.js', '.')
     .sass('assets/sass/main.scss', '.')

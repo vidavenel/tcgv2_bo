@@ -18,6 +18,7 @@ import './dashboard'
 require('daterangepicker');
 import moment from 'moment'
 
+console.log('etst');
 
 $(function() {
 
