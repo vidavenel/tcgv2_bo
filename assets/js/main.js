@@ -33,21 +33,51 @@ $(function() {
     }*/
 
     if (document.querySelector('#datatable')) {
-        $('#datatable').DataTable({
+        let datatable = $('#datatable').DataTable({
             bSortCellsTop: true,
-            dom: '<"toolbar">tp',
+            dom: '<"toolbar">tipr',
             order: [[ 0, "desc" ]],
             pageLength: 25,
             serverSide: true,
             columns: [
-                { "searchable": false, "name": "reference" },
-                { "name": "client"},
-                { "name": "demarche"},
-                { "name": "statut"},
-                { "name": "montant"},
-                { "name": "paiement"},
-                { "name": "date"}
-            ]
+                { "name": "reference", "data": "reference"},
+                { "name": "client_nom", "data": function (data) {
+                        return `${data.client_nom} ${data.client_prenom}`
+                    }
+                },
+                { "name": "demarche", "data": "demarche"},
+                { "name": "statut", "data": function (data) {
+                        return `<span class="label label-${data.statut.class}">${data.statut.nom}</span>`;
+                    }
+                },
+                { "name": "montant", "data": "montant"},
+                { "name": "paiement", "data": "paiement"},
+                { "name": "date", "data": "date"}
+            ],
+            language: {
+                "emptyTable":     "Aucune donnée disponible",
+                "info":           "Affichage de _START_ à _END_ sur _TOTAL_ lignes",
+                "infoEmpty":      "Showing 0 to 0 of 0 entries",
+                "infoFiltered":   "(filtré de _MAX_ lignes)",
+                "lengthMenu":     "Voir _MENU_ lignes",
+                "loadingRecords": "Chargement...",
+                "processing":     "Traitement en cours...",
+                "zeroRecords":    "Aucun resultat",
+                "paginate": {
+                    "first":      "Début",
+                    "last":       "Fin",
+                    "next":       "Suivant",
+                    "previous":   "Précédent"
+                },
+            },
+        });
+
+        $('#datatable select').on('change', (e) => {
+            console.log(e.target.value);
+            let column = e.target.getAttribute('data-column');
+            datatable.column(column)
+                .search(e.target.value)
+                .draw();
         });
     }
 
