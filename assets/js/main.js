@@ -79,6 +79,11 @@ $(function() {
                 .search(e.target.value)
                 .draw();
         });
+
+        $('#datatable tbody').on('click', 'tr', function () {
+            let data = datatable.row(this).data();
+            window.location = '/tcgadmin/commande/'+ data.id;
+        });
     }
 
     if (document.querySelector('#daterange') || document.querySelectorAll('.daterange')) {
