@@ -25,8 +25,7 @@ mix.setPublicPath('dist')
     })
     .js('assets/js/main.js', '.')
     .sass('assets/sass/main.scss', '.')
-    .sourceMaps()
-    .version();
+    .sourceMaps();
 
 // Full API
 // mix.js(src, output);
