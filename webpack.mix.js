@@ -16,7 +16,7 @@ mix.setPublicPath('dist')
         jquery: ['$', 'window.jQuery', 'jQuery']
     })
     .browserSync({
-        proxy: 'http://127.0.0.1:8000',
+        proxy: 'http://127.0.0.1:8080',
         serveStatic: ['./dist', {
             route: 'vendor/tcgv2_bo',
             dir: './dist'

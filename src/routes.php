@@ -21,6 +21,18 @@ Route::get('/commandes', function () {
         $commandes->push(new Commande());
     }
     $paginator = new LengthAwarePaginator($commandes, 50, 25);
+    $demarches = collect();
+    $demarches->push(['nom' => 'Changement titulaire', 'id' => 1]);
+    $demarches->push(['nom' => 'Changement de nom', 'id' => 2]);
+
+    $statuts = collect();
+    $statuts->push(['nom' => 'En attente', 'id' => 1]);
+    $statuts->push(['nom' => 'Complet', 'id' => 2]);
+
+    $paiements = collect();
+    $paiements->push(['nom' => 'Montico', 'id' => 1]);
+    $paiements->push(['nom' => 'Payplug', 'id' => 2]);
+
     return new CommandeIndexResponse($paginator);
 })->name('admin.commande.index');
 
