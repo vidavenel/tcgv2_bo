@@ -130,3 +130,4 @@ cmake-build-*/
 # Crashlytics plugin (for Android Studio and IntelliJ)
 
 # Editor-based Rest Client
+/public/.env

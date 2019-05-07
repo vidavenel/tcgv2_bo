@@ -6,7 +6,7 @@ require('admin-lte/dist/js/adminlte');
 
 // datatable
 require( 'datatables.net-bs' );
-require('datatables.net-bs/css/dataTables.bootstrap.css');
+import * as dt from './datatable';
 
 // select2
 require('select2');
@@ -32,59 +32,9 @@ $(function() {
         editor('textarea#cgv');
     }*/
 
-    if (document.querySelector('#datatable')) {
-        let datatable = $('#datatable').DataTable({
-            bSortCellsTop: true,
-            dom: '<"toolbar">tipr',
-            order: [[ 0, "desc" ]],
-            pageLength: 25,
-            serverSide: true,
-            columns: [
-                { "name": "reference", "data": "reference"},
-                { "name": "client_nom", "data": function (data) {
-                        return `${data.client_nom} ${data.client_prenom}`
-                    }
-                },
-                { "name": "demarche", "data": "demarche"},
-                { "name": "statut", "data": function (data) {
-                        return `<span class="label label-${data.statut.class}">${data.statut.nom}</span>`;
-                    }
-                },
-                { "name": "montant", "data": "montant"},
-                { "name": "paiement", "data": "paiement"},
-                { "name": "date", "data": "date"}
-            ],
-            language: {
-                "emptyTable":     "Aucune donnée disponible",
-                "info":           "Affichage de _START_ à _END_ sur _TOTAL_ lignes",
-                "infoEmpty":      "Showing 0 to 0 of 0 entries",
-                "infoFiltered":   "(filtré de _MAX_ lignes)",
-                "lengthMenu":     "Voir _MENU_ lignes",
-                "loadingRecords": "Chargement...",
-                "processing":     "Traitement en cours...",
-                "zeroRecords":    "Aucun resultat",
-                "paginate": {
-                    "first":      "Début",
-                    "last":       "Fin",
-                    "next":       "Suivant",
-                    "previous":   "Précédent"
-                },
-            },
-        });
-
-        $('#datatable select').on('change', (e) => {
-            console.log(e.target.value);
-            let column = e.target.getAttribute('data-column');
-            datatable.column(column)
-                .search(e.target.value)
-                .draw();
-        });
-
-        $('#datatable tbody').on('click', 'tr', function () {
-            let data = datatable.row(this).data();
-            window.location = '/tcgadmin/commande/'+ data.id;
-        });
-    }
+    // datatables
+    dt.list('datatable');
+    dt.abandonnees('datatable_abandonne');
 
     if (document.querySelector('#daterange') || document.querySelectorAll('.daterange')) {
         let start = moment().subtract(29, 'days');

@@ -3,7 +3,7 @@
 use Tcgv2\Bo\Test\Application;
 use Tcgv2\Bo\Tests\Kernel;
 
-require __DIR__.'/mix.php';
+require __DIR__ . '/helpers.php';
 require __DIR__.'/../vendor/autoload.php';
 require __DIR__.'/Kernel.php';
 
