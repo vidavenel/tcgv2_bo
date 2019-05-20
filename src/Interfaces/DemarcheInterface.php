@@ -10,9 +10,9 @@ interface DemarcheInterface extends BaseInterface
 
     function getNom(): string;
 
-    function getFriendlyUrl(): string;
+    function getFriendlyUrl(): ?string;
 
-    function getPrix(): float;
+    function getPrix(): ?float;
 
     function getStatut(): StatutInterface;
 
