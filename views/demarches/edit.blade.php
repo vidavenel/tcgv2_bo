@@ -1,11 +1,10 @@
-@extends('layouts.admin.app')
+@extends('bo::layouts.app')
 
 @section('content')
     <!-- Main content -->
     <section class="content">
-        @include('layouts.errors-and-messages')
         <div class="box">
-            <form action="{{ route('admin.demarches.update', $demarche) }}" method="post" class="form">
+            <form action="{{ route('admin.parametre.demarche_update', $demarche) }}" method="post" class="form">
                 <div class="box-body">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="put">
@@ -15,15 +14,15 @@
                     </div>
                     <div class="form-group">
                         <label for="friendly_url">Url</label>
-                        <input type="text" name="friendly_url" id="friendly_url" placeholder="Url" class="form-control" value="{!! $demarche->friendly_url ?: old('friendly_url')  !!}">
+                        <input type="text" name="friendly_url" id="friendly_url" placeholder="Url" class="form-control" value="{!! $demarche->friendlyUrl ?: old('friendly_url')  !!}">
                     </div>
                     <div class="form-group">
                         <label for="reference_ants">Reference ANTS</label>
-                        <input disabled type="number" name="reference_ants" id="reference_ants" placeholder="Reference ANTS" class="form-control" value="{!! $demarche->reference_ants ?: old('reference_ants')  !!}">
+                        <input disabled type="number" name="reference_ants" id="reference_ants" placeholder="Reference ANTS" class="form-control" value="{!! $demarche->referenceAnts ?: old('reference_ants')  !!}">
                     </div>
                     <div class="form-group">
                         <label for="icon_path">Icon</label>
-                        <input disabled type="text" name="icon_path" id="icon_path" placeholder="Icon" class="form-control" value="{!! $demarche->icon_path ?: old('icon_path')  !!}">
+                        <input disabled type="text" name="icon_path" id="icon_path" placeholder="Icon" class="form-control" value="{!! $demarche->iconPath ?: old('icon_path')  !!}">
                     </div>
                     <div class="form-group">
                         <label for="icon_path">Description</label>
@@ -32,11 +31,9 @@
                 </div>
 
                 <!-- /.box-body -->
-                <div class="box-footer">
-                    <div class="btn-group">
-                        <a href="{{ route('admin.employees.index') }}" class="btn btn-default btn-sm">Back</a>
-                        <button type="submit" class="btn btn-primary btn-sm">Update</button>
-                    </div>
+                <div class="box-footer" style="text-align: right">
+                    <a href="{{ back() }}" class="btn btn-default btn-sm">Annuler</a>
+                    <button type="submit" class="btn btn-primary btn-sm">Enregistrer</button>
                 </div>
             </form>
         </div>

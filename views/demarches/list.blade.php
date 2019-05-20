@@ -1,42 +1,34 @@
-@extends('layouts.admin.app')
+@extends('bo::layouts.app')
 
 @section('content')
     <!-- Main content -->
     <section class="content">
 
-    @include('layouts.errors-and-messages')
+    @include('bo::layouts.errors-and-messages')
     <!-- Default box -->
-        @if($demarches)
             <div class="box">
                 <div class="box-body">
                     <h2>Demarches</h2>
-                    <table class="table">
+                    <table class="table table-striped table-hover">
                         <thead>
                         <tr>
                             <td class="col-md-1">ID</td>
                             <td class="col-md-3">Nom</td>
                             <td class="col-md-3">Friendly_url</td>
-                            <td class="col-md-1">Status</td>
-                            <td class="col-md-4">Actions</td>
+                            <td class="col-md-2">Prix</td>
+                            <td class="col-md-2">Status</td>
+                            <td class="col-md-1"></td>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($demarches as $demarche)
-                            <tr>
+                            <tr style="cursor: pointer;" data-href="{{ route('admin.parametre.demarche_edit', $demarche->id) }}">
                                 <td>{{ $demarche->id }}</td>
                                 <td>{{ $demarche->nom }}</td>
-                                <td>{{ $demarche->friendly_url }}</td>
-                                <td>@include('layouts.status', ['status' => $demarche->active])</td>
+                                <td>{{ $demarche->friendlyUrl }}</td>
+                                <td>{{ $demarche->prix }}</td>
                                 <td>
-                                    <form action="{{ route('admin.demarches.destroy', $demarche->id) }}" method="post" class="form-horizontal">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" name="_method" value="delete">
-                                        <div class="btn-group">
-                                            <a href="{{ route('admin.demarches.show', $demarche->id) }}" class="btn btn-default btn-sm" disabled="disabled"><i class="fa fa-eye"></i> Show</a>
-                                            <a href="{{ route('admin.demarches.edit', $demarche->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                            <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm" disabled="disabled"><i class="fa fa-times"></i> Delete</button>
-                                        </div>
-                                    </form>
+                                    <span class="badge bg-{{ $demarche->statut->class }}">{{ $demarche->statut->nom }}</span>
                                 </td>
                             </tr>
                         @endforeach
@@ -46,8 +38,33 @@
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
-        @endif
 
     </section>
     <!-- /.content -->
+
+    <div class="modal fade" id="modal_demarche" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form href="#">
+                    <div class="modal-header">
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="">×</span></button>
+                        <h4 class="modal-title">Modification démarche</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nom_demarche">Nom</label>
+                            <input class="form-control" id="nom_demarche" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="prix_demarche">Prix</label>
+                            <input class="form-control" id="prix_demarche" type="number" step="0.01">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
