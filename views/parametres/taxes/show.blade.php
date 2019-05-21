@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="content">
-        <form action="{{ route('admin.parametre.taxes_update') }}">
+        <form action="{{ route('admin.parametre.taxes_update') }}" method="POST">
             @csrf
             @method('PUT')
             <div class="box box-info">
