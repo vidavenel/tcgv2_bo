@@ -3,6 +3,8 @@
 @section('content')
     <section class="content">
         <form action="{{ route('admin.parametre.taxes_update') }}">
+            @csrf
+            @method('PUT')
             <div class="box box-info">
                 <div class="box-body">
                     <h2>Taxes</h2>
