@@ -16,9 +16,9 @@ interface DemarcheInterface extends BaseInterface
 
     function getStatut(): StatutInterface;
 
-    function getReferenceAnts(): string;
+    function getReferenceAnts(): ?string;
 
-    function getDescription(): string;
+    function getDescription(): ?string;
 
-    function getIconPath(): string;
+    function getIconPath(): ?string;
 }
