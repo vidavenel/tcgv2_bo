@@ -4,7 +4,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="box">
-            <form action="{{ route('admin.parametre.demarche_update', $demarche) }}" method="post" class="form">
+            <form action="{{ route('admin.parametre.demarche_update', $demarche->id) }}" method="post" class="form">
                 <div class="box-body">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="put">
