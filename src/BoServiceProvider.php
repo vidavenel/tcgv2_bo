@@ -16,9 +16,6 @@ class BoServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        // route
-        //$this->loadRoutesFrom(__DIR__.'/routes.php');
-
         // views
         $this->loadViewsFrom(__DIR__.'/../views', 'bo');
 

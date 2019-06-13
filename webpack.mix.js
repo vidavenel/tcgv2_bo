@@ -25,9 +25,7 @@ mix.setPublicPath('dist')
     })
     .js('assets/js/main.js', '.')
     .sass('assets/sass/main.scss', '.')
-    .copyDirectory('node_modules/font-awesome/fonts', 'dist/fonts/font-awesome')
     .sourceMaps();
-
 
 // Full API
 // mix.js(src, output);

@@ -9,13 +9,14 @@
             <!-- Optionally, you can add icons to the links -->
             <li @if(request()->segment(2) == 'commandes')class="active"@endif"><a href="{{ route('admin.commande.index') }}"><i class="fa fa-shopping-cart"></i> <span>Commandes</span></a></li>
             <li @if(request()->segment(2) == 'commandes-non-payees')class="active"@endif"><a href="{{ route('admin.commande.abandonnee') }}"><i class="fa fa-shopping-bag"></i> <span>Commandes abandonnées</span></a></li>
-            {{--<li><a href="#"><i class="fa fa-times"></i> <span>Commandes expirées</span></a></li>
-            <li><a href="#"><i class="fa fa-send"></i> <span>Accessoires à envoyer</span></a></li>--}}
+            {{--<li><a href="#"><i class="fa fa-times"></i> <span>Commandes expirées</span></a></li>--}}
+            <li @if(request()->segment(2) == 'commandes-accessoires')class="active"@endif"><a href="{{ route('admin.commande.accessories') }}"><i class="fa fa-send"></i> <span>Accessoires à envoyer</span></a></li>
             <li @if(request()->segment(2) == 'code-promo')class="active"@endif"><a href="{{ route('admin.discount.index') }}"><i class="fa fa-gift"></i> <span>Code promo</span></a></li>
             <li class="header">Administration</li>
             <li @if(request()->segment(2) == 'employees' || request()->segment(2) == 'roles' || request()->segment(2) == 'permissions') class="active" @endif"><a href="{{ route('admin.employees.index') }}"><i class="fa fa-users"></i> <span>Employés</span></a></li>
-            {{--<li><a href="../admin_demarche.html"><i class="fa fa-university"></i> <span>Démarches</span></a></li>
-            <li><a href="#"><i class="fa fa-shopping-basket"></i> <span>Articles</span></a></li>
+            <li @if(request()->segment(2) == 'demarche') class="active"@endif"><a href="{{ route('admin.parametre.demarche') }}"><i class="fa fa-university"></i> <span>Démarches</span></a></li>
+            <li @if(request()->segment(2) == 'taxes') class="active"@endif"><a href="{{ route('admin.parametre.taxes') }}"><i class="fa fa-money"></i> <span>Taxes</span></a></li>
+            {{--<li><a href="#"><i class="fa fa-shopping-basket"></i> <span>Articles</span></a></li>
             <li><a href="#"><i class="fa fa-cogs"></i> <span>Paramètres</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-car"></i> <span>Ants</span>

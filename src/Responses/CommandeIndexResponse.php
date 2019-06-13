@@ -18,20 +18,24 @@ use Tcgv2\Bo\Presenters\CommandePresenter;
 
 class CommandeIndexResponse implements Responsable
 {
-    private $commandes;
+    private $filter;
     private $demarches;
     private $statuts;
     private $paiements;
 
-    public function __construct(Paginator $commandes, Collection $demarche = null, Collection $statuts= null, Collection $paiements= null)
+    /**
+     * CommandeIndexResponse constructor.
+     * @param Collection|null $demarche
+     * @param Collection|null $statuts
+     * @param Collection|null $paiements
+     * @param string $filter
+     */
+    public function __construct(Collection $demarche = null, Collection $statuts= null, Collection $paiements= null, $filter = null)
     {
-        $commandes->getCollection()->transform(function (CommandeInterface $commande) {
-            return new CommandePresenter($commande);
-        });
-        $this->commandes = $commandes;
         $this->demarches = $demarche ?: collect();
         $this->statuts = $statuts ?: collect();
         $this->paiements = $paiements ?: collect();
+        $this->filter = $filter;
     }
 
     /**
@@ -42,11 +46,15 @@ class CommandeIndexResponse implements Responsable
      */
     public function toResponse($request)
     {
-        return view('bo::commandes.list', [
-            'commandes' => $this->commandes,
+        $params = [
             'demarches' => $this->demarches,
             'statuts' => $this->statuts,
             'paiements' => $this->paiements
-        ]);
+        ];
+
+        if ($this->filter === 'with_accessories') {
+            return view('bo::commandes.list_with_accesories', $params);
+        }
+        return view('bo::commandes.list', $params);
     }
 }
