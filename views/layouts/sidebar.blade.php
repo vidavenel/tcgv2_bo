@@ -17,6 +17,7 @@
             <li @if(request()->segment(2) == 'demarche') class="active"@endif"><a href="{{ route('admin.parametre.demarche') }}"><i class="fa fa-university"></i> <span>Démarches</span></a></li>
             <li @if(request()->segment(2) == 'taxes') class="active"@endif"><a href="{{ route('admin.parametre.taxes') }}"><i class="fa fa-money"></i> <span>Taxes</span></a></li>
             <li><a href="/tcgadmin/admin-cgv"><i class="fa fa-pencil-square-o"></i> <span>Page CGV</span></a></li>
+            <li><a href="/tcgadmin/admin-email"><i class="fa fa-send-o"></i> <span>Email</span></a></li>
             {{--<li><a href="#"><i class="fa fa-shopping-basket"></i> <span>Articles</span></a></li>
             <li><a href="#"><i class="fa fa-cogs"></i> <span>Paramètres</span></a></li>
             <li class="treeview">
